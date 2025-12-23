@@ -1,10 +1,16 @@
 from django.contrib.auth import get_user_model
+
 from django.db import models
 
 from core.models import PublishedModel
 
+
 User = get_user_model()
+
+
 SYMBOL_CONSTRAINT = 30
+
+
 LIMIT_FOR_COMMENT_TITLE = 20
 
 

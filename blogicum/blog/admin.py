@@ -3,9 +3,11 @@ from django.contrib import admin
 from blog.models import Category, Comment, Location, Post
 
 from django.contrib.auth.admin import UserAdmin
+
 from django.contrib.auth import get_user_model
 
-TEXT = 'Описание публикации.'
+TEXT = 'ОПИСАНИЕ ПУБЛИКАЦИИ'
+
 
 
 @admin.register(Post)
@@ -84,16 +86,11 @@ class CommentAdmin(admin.ModelAdmin):
 
 User = get_user_model()
 
-# Разименуем стандартную регистрацию
 admin.site.unregister(User)
 
-# Регистрируем с кастомным админом
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
-    """
-    Кастомизированный админ-класс для пользователей.
-    UserAdmin скрывает пароли и предоставляет безопасный интерфейс.
-    """
+
     list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'is_active')
     list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups')
     search_fields = ('username', 'first_name', 'last_name', 'email')
