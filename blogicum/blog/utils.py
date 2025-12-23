@@ -7,7 +7,7 @@ from django.core.paginator import Paginator  # Для разбиения рез�
 from django.db.models import Count           # Для агрегации и подсчета комментариев
 
 
-def published_only(queryset=None):
+def published_only(queryset=None): # --- 13 2.4 Параметр с значением по умолчанию
     """
     Фильтрует QuerySet, оставляя только опубликованные посты.
     Учитывает три критерия публикации:
@@ -31,7 +31,7 @@ def published_only(queryset=None):
 
 
 
-def get_paginated_page(queryset, request, per_page=10):
+def get_paginated_page(queryset, request, per_page=10): # --- 11
     """
     Создает пагинацию для QuerySet.
     Разбивает большой список объектов на страницы для удобного отображения.
@@ -48,7 +48,7 @@ def get_paginated_page(queryset, request, per_page=10):
 
 
 
-def get_posts_with_comments(show_all=False, queryset=None):
+def get_posts_with_comments(show_all=False, queryset=None): # --- 9 2.3
     """
     Возвращает QuerySet постов с оптимизацией запросов и подсчетом комментариев.
     Выполняет две ключевые оптимизации:
@@ -61,7 +61,7 @@ def get_posts_with_comments(show_all=False, queryset=None):
         queryset = Post.objects.all()
     
     # Если не нужно показывать все посты, применяем фильтрацию published_only
-    if not show_all:
+    if not show_all: # Параметр для управления фильтрацией
         queryset = published_only(queryset)
     
     # Оптимизация запросов к базе данных

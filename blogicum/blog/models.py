@@ -72,7 +72,7 @@ class Category(PublishedModel):
 
 
 
-class Post(PublishedModel):
+class Post(PublishedModel): #---
     """
     Основная модель для хранения публикаций (постов) в блоге.
     Содержит основной контент блога.
@@ -96,7 +96,7 @@ class Post(PublishedModel):
         )
     )
     
-    # Связь с моделью пользователя - автор поста
+    # Связь с моделью пользователя - автор поста ---
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -120,7 +120,7 @@ class Post(PublishedModel):
         blank=False, 
         null=True,   
         verbose_name='Категория',
-    )
+    ) #---
     
     # Поле для загрузки изображений к постам
     image = models.ImageField(
@@ -145,7 +145,7 @@ class Post(PublishedModel):
 
 
 
-class Comment(PublishedModel):
+class Comment(PublishedModel): #---
     """
     Модель для хранения комментариев к постам.
     Пользователи могут комментировать посты.
@@ -154,7 +154,7 @@ class Comment(PublishedModel):
     # Поле для текста комментария
     text = models.TextField('Комментарий')
     
-    # Связь с моделью Post - пост, к которому относится комментарий
+    # Связь с моделью Post - пост, к которому относится комментарий ---
     post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
@@ -164,7 +164,7 @@ class Comment(PublishedModel):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-    )
+    )#---
 
 
     class Meta:

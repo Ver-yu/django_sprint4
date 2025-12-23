@@ -12,7 +12,7 @@ from django.contrib.auth import get_user_model
 TEXT = 'Описание публикации.'
 
 
-# Регистрация модели Post с кастомным админ-классом
+# Регистрация модели Post с кастомным админ-классом ---
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     """
@@ -79,7 +79,7 @@ class PostInline(admin.TabularInline):
 
 
 
-# Регистрация модели Category с кастомным админ-классом
+# Регистрация модели Category с кастомным админ-классом ---
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     """
@@ -107,7 +107,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 
-# Регистрация модели Location с кастомным админ-классом
+# Регистрация модели Location с кастомным админ-классом ---
 @admin.register(Location)
 class LocationAdmin(admin.ModelAdmin):
     """
@@ -130,7 +130,7 @@ class LocationAdmin(admin.ModelAdmin):
 
 
 
-# Регистрация модели Comment с кастомным админ-классом
+# Регистрация модели Comment с кастомным админ-классом ---
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     """
@@ -161,7 +161,7 @@ User = get_user_model()
 admin.site.unregister(User)
 
 
-# Регистрируем модель пользователя с кастомным админ-классом
+# Регистрируем модель пользователя с кастомным админ-классом --- 2.9
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     """

@@ -4,7 +4,7 @@ from django import forms
 from blog.models import Comment, Post, User
 
 
-# Форма для создания и редактирования постов (публикаций)
+# Форма для создания и редактирования постов (публикаций) --- 3  2.2
 class PostForm(forms.ModelForm):
     """
     Форма для работы с постами (публикациями).

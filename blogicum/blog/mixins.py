@@ -11,7 +11,7 @@ from blog.models import Comment, Post
 PAGE_PAGINATOR = 10
 
 
-class CustomListMixin:
+class CustomListMixin: #--- 8 10 2.7
     """
     Миксин для списковых представлений (ListView).
     Предоставляет общую логику для отображения списка постов:
@@ -26,7 +26,7 @@ class CustomListMixin:
     # Количество постов на одной странице при пагинации
     paginate_by = PAGE_PAGINATOR
 
-    def get_queryset(self):
+    def get_queryset(self): # --- 10 2.7
         """
         Возвращает оптимизированный QuerySet постов.
         """
@@ -45,7 +45,7 @@ class CustomListMixin:
         return queryset.order_by(*Post._meta.ordering)
 
 
-class PostChangeMixin:
+class PostChangeMixin: # --- 6 15
     """
     Миксин для представлений изменения постов (редактирование, удаление).
     Обеспечивает проверку прав доступа: только автор поста может его изменять.
@@ -60,7 +60,7 @@ class PostChangeMixin:
     # Имя параметра URL, который содержит идентификатор поста
     pk_url_kwarg = 'post_id'
 
-    def dispatch(self, request, *args, **kwargs):
+    def dispatch(self, request, *args, **kwargs): # --- 15
         """
         Переопределяем метод dispatch для проверки прав доступа.
         Вызывается перед вызовом любого HTTP-метода (GET, POST и т.д.).
